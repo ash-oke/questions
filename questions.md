@@ -12,7 +12,7 @@ Questions discussed:
 
 3. Given a list of pair of <take_off, landing> time of flights, return the maximum no of flights that will be in air simultaneously.
 
-   [Ashoke to update url of question]
+   https://www.lintcode.com/problem/number-of-airplanes-in-the-sky/
    
    Quick Solution:
    
