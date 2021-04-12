@@ -57,7 +57,7 @@ https://leetcode.com/problems/next-permutation/
     <details>
         <summary>Quick Solution</summary>
     
-    - Starting from last to first, find first entry which is
+    - Starting from last to first, find first entry which is non-increasing.
     - Find smallest greater element than the value found in step `1`.
     - Swap elements from step `1` and step `2`.
     - Reverse the subarray after index from step `1`.
