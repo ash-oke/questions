@@ -7,12 +7,12 @@ https://leetcode.com/problems/inorder-successor-in-bst/
 
     - If given node has right child, return the left most child of right child of 'p'.
     - Otherwise, starting from root, push all the parents till 'p' in stack and pop till immediate 
-      parent is successor.
+      parent is successor (`p.val < parent.val`)
 
     </details>
 
-2. Given a list of pair of \<take_off, landing\> time of flights, return the maximum no of flights that will be in air simultaneously.  
-[Ashoke to update url of question]  
+2. Given a list of pair of `<take_off, landing>` time of flights, return the maximum no of flights that will be in air simultaneously.  
+https://www.lintcode.com/problem/number-of-airplanes-in-the-sky/
     <details>
         <summary>Quick Solution</summary>
     
