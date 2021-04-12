@@ -35,3 +35,43 @@ https://leetcode.com/problems/ones-and-zeroes/
       conditions are met or ignore current element and try to fulfill conditions from other elements.
 
     </details>
+    
+4. Given an array of positive numbers and a positive target, find minimum contiguous subarray whose sum is greater  
+   than or equal to `target`.  
+https://leetcode.com/problems/minimum-size-subarray-sum/
+    <details>
+        <summary>Quick Solution</summary>
+    
+    - 2 pointer problem/sliding window problem.
+    - Keep 2 pointers. The idea is that subarray defined by these 2 pointers would be the subarray which satisfies the
+      given conditions.
+    - Traverse each value from one end to another. Increase your ending pointer if the sum is still less than `target`.
+    - If by adding the next element, the sum is greater than target, increase the starting pointer which denotes you are
+      shrinking the array from beginning.
+    - At each point in time, keep track what is the largest subarray size you saw.
+    
+    </details>
+
+5. Given a array of integers, find the next permutation.  
+https://leetcode.com/problems/next-permutation/
+    <details>
+        <summary>Quick Solution</summary>
+    
+    - Starting from last to first, find first entry which is
+    - Find smallest greater element than the value found in step `1`.
+    - Swap elements from step `1` and step `2`.
+    - Reverse the subarray after index from step `1`.
+
+    </details>
+    
+6. Given 2 strings, find the minimum no of deletions you need to make such that resulting strings are same.  
+https://leetcode.com/problems/delete-operation-for-two-strings/
+
+    <details>
+        <summary>Quick Solution</summary>
+    
+    - Modified LCS.
+    - Find the longest common subsequence in 2 strings using DP.
+    - return `size1 + size2 - 2*(lcs)`
+    
+    </details>
