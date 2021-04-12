@@ -1,7 +1,7 @@
 # Questions discussed
 
 1. Given a node 'p' of BST, and root, return the inorder successor of 'p'. Note that there is no pointer to parent.  
-https://leetcode.com/problems/inorder-successor-in-bst/     
+https://www.lintcode.com/problem/inorder-successor-in-bst/     
     <details>
         <summary>Quick Solution</summary>
 
