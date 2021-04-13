@@ -75,3 +75,58 @@ https://leetcode.com/problems/delete-operation-for-two-strings/
     - return `size1 + size2 - 2*(lcs)`
     
     </details>
+    
+7. Given a sorted array A of unique numbers, find the k-th missing number starting from the leftmost number of the array.  
+https://leetcode.com/problems/missing-element-in-sorted-array/
+https://code.dennyzhang.com/missing-element-in-sorted-array/
+    <details>
+        <summary>Quick Solution</summary>
+        
+    - Binary search
+    - If the missing no falls in left half, search the missing no in left half. If it falls in right half,
+      change the no of missing no to-be-searched by how many missing nos are gone in left half.
+    - At any point of time, missing_nos_in_range = highest_value - lowest_value + 1 - range_size;
+
+    </details>
+    
+8. Given n sorted lists, merge them and return single sorted merged list.  
+https://leetcode.com/problems/merge-k-sorted-lists/
+    <details>
+        <summary>Quick Solution</summary>
+        
+    - One solution is to use min heap to keep track of minimum out of each head of list.
+    - Keep incrementing head of lists which is added to final result list.
+    - Second solution is to build on mergeSort which works on 2 lists.
+    - If there are more than 2 lists, divide the no of lists in half and apply mergeSort. Do this step recursively.
+    
+    </details>
+    
+9. Given `n` and `k` such that `1 <= k < n`, return an array with values 1 to n such that the number of distinct
+   differences between adjacent numbers is k.  
+https://leetcode.com/problems/beautiful-arrangement-ii/
+    <details>
+        <summary>Quick Solution</summary>
+    
+    - If k = 1, return numbers in increasing order from 1 to n.
+    - Keep 2 variables pointing to 1 and n, lets say i = 1, j = n.
+    - while k != 1, alternatively push i/j to result array. Increment i if i is pushed/ decrement j if j is pushed.
+      Reduce k.
+    - Do step 1 when k reaches 1.
+
+    </details>
+
+10. Given an array `sum`, and 2 sums `sumA` and `sumB`, return 2 equal length arrays `A` and `B` consisting of only
+    `0, 1` such that total sum of each array is equal to `sumA` and `sumB` respectively and `A[i]` + `B[i]` = `sum[i]`  
+{TODO: Find out url of this question.}
+    - Follow up: What if instead of filling up with just 0, 1, you could fill with numbers `1 to k`?
+
+    <details>
+        <summary>Quick Solution</summary>
+        
+    - At each index `i`, if `sum[i] == 2`, fill up `1` in both arrays `A` and `B`, and reduce `sumA` and `sumB` by 1.
+    - If `sum[i] == 0`, fill up `0` in both arrays `A` and `B`.
+    - if `sum[i] == 1`, fill up `1` in the array which has higher remaining sum.
+
+    - TODO: Work out follow up question solution.
+    
+    </summary>
