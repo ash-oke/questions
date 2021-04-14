@@ -130,3 +130,61 @@ https://leetcode.com/problems/beautiful-arrangement-ii/
     - TODO: Work out follow up question solution.
     
     </summary>
+
+11. Given an array of non-negative integers `nums`, each element in the array represents your maximum jump length at 
+    that position. Determine if you can reach the end of the array.  
+https://leetcode.com/problems/jump-game/
+    
+    <details>
+        <summary>Quick Solution</summary>
+        
+    - Start with `reach = 0`, meaning I can reach 0th index always.
+    - Run loop starting from 0 upto `reach`.
+    - Update `reach` to be maximum of `(i + nums[i])`, `reach`.
+    - If `reach` >= size of array, then you can reach the end, otherwise return `false`.
+    
+    </summary>
+    
+- Follow up: Assume input is such that you can always reach the end, return the minimum no of jumps.  
+      https://leetcode.com/problems/jump-game-ii/
+      
+    <details>
+        <summary>Quick Solution</summary>
+        
+    - Keep track of what is the farthest I could go if I took a jump from any node seen till now, lets call this `farthest`.
+    - Keep track of what is the farthest I could go if I just stuck with the first index, lets call this `currentFarthest`.
+    - For each number in array, do the following:
+        - Update `farthest` to max of `(farthest, i + nums[i])`.
+        - If `current_index = currentFarthest`, i.e. this is the last index I could reach if I stick with my original jump position. I'm now forced to take a jump. Set `no-of-jumps++`, and `currentFarthest = farthest`.
+    - Return `no-of-jumps`.
+     
+     </summary>
+
+12. Given a coordinate `(sr, sc)` representing the starting pixel (row and column) of the flood fill, and a pixel value 
+    `newColor`, "flood fill" the image.  
+https://leetcode.com/problems/flood-fill/
+
+    <details>
+        <summary>Quick Solution</summary>
+        
+    - Starting from given pixel, do a dfs to neighboring nodes (below step 2).
+    - If current node has the original Color, change it to newColor and check for its neighboring nodes.
+    
+    </details>
+
+13. Given a string `s`, find the length of the longest substring without repeating chars.  
+https://leetcode.com/problems/longest-substring-without-repeating-characters/
+
+    <details>
+        <summary>Quick Solution</summary>
+    
+    - Maintain an hash for each character. Value of hash tells when was the last time I saw this character.
+    - Do the following for each character in the input string:
+        - The `lowerbound` of our unique-char-substring would be max of `(current_lowerbound, last_time_I_saw_this_char)`.
+        - Update `last_time_I_saw_this_char` to `current Index`.
+        - Update `longestLength` as max of `(current longestLength, current_index - lowerBound + 1)`.
+    - Return `longestLength`.
+    
+    </details>
+
+
