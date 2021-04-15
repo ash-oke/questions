@@ -1,5 +1,6 @@
 # Questions discussed
 
+All the solution codes (in `C++`) can be accessed at appropriate difficulty folder [here](https://github.com/anuragtomer/practice_coding/tree/master/leetcode)
 1. Given a node 'p' of BST, and root, return the inorder successor of 'p'. Note that there is no pointer to parent.  
 https://www.lintcode.com/problem/inorder-successor-in-bst/     
     <details>
