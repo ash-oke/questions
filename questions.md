@@ -155,7 +155,8 @@ https://leetcode.com/problems/jump-game/
     - Keep track of what is the farthest I could go if I just stuck with the first index, lets call this `currentFarthest`.
     - For each number in array, do the following:
         - Update `farthest` to max of `(farthest, i + nums[i])`.
-        - If `current_index = currentFarthest`, i.e. this is the last index I could reach if I stick with my original jump position. I'm now forced to take a jump. Set `no-of-jumps++`, and `currentFarthest = farthest`.
+        - If `current_index = currentFarthest`, i.e. this is the last index I could reach if I stick with my original 
+          jump position. I'm now forced to take a jump. Set `no-of-jumps++`, and `currentFarthest = farthest`.
     - Return `no-of-jumps`.
      
      </summary>
@@ -187,4 +188,80 @@ https://leetcode.com/problems/longest-substring-without-repeating-characters/
     
     </details>
 
+14. Given an integer array `nums`, find the contiguous subarray (containing at least one number) which has the largest
+    sum and return its sum.  
+https://leetcode.com/problems/maximum-subarray/
 
+    <details>
+        <summary>Quick Summary</summary>
+        
+    - Kadane's algorithm
+    - Traverse the array from left to right.
+    - For each element, either the maximum sum subarray starts from this location, or it extends the current running max sum subarray.
+      i.e. `may-be-longest = max(num[i], may-be-longest + num[i])`
+    - This new `may-be-longest` can be the maximum sum subarray. `actual-longest = max(may-be-longest, actual-longest)`
+    
+    </details>
+
+15. Implement the Trie class:  
+    - `Trie()` Initializes the trie object.
+    - `void insert(String word)` Inserts the string word into the trie.
+    - `boolean search(String word)` Returns true if the string word is in the trie (i.e., was inserted before), and 
+      false otherwise.
+    - `boolean startsWith(String prefix)` Returns true if there is a previously inserted string word that has the 
+      prefix prefix, and false otherwise.  
+https://leetcode.com/problems/implement-trie-prefix-tree/
+
+    <details>
+        <summary>Quick Summary</summary>
+        
+    - Create a Node with 26 next pointers and a bool to denote whether some word ends at this.
+    - When inserting, go down the 26 pointers for each char of input array, creating new nodes if need be. Mark the last
+      pointer to denotes some word ends there.
+    - For searching, for each character in input array, go down the 26 pointers. If you cannot go down, return false. 
+      If all the chars are traversed but the last node is not marked as end, then return false.
+    - For prefix, same as above but if you could traverse all the chars of input, return true.
+    
+    </details>
+
+16. Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should 
+    be set to `NULL`.  
+https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
+
+    <details>
+        <summary>Quick Summary</summary>
+        
+    - Do a `node-right-left` (reverse pre-order) traversal.
+    - For each node, link up its children.
+    - Find a next node whose at least one child is alive.
+    - Link up right most child to leftmost child of next.
+    - Recursively continue step 2-4 for right child, then left child.
+    
+    Other solution is to use some extra data structure:  
+    - Do level order traversal.
+    - Maintain 2 queues, one for current level, another for next level.
+    - Traverse each queue, for each node push its children to next queue, and link up this current queue elements. Don't
+      push `null` pointers to queue.
+    - Swap current queue with next level queue when current queue is empty, and clear next level queue.
+    - Do step 3, 4 till both queues are empty.
+
+    </details>
+
+17. Find median of running stream of numbers.  
+https://leetcode.com/problems/find-median-from-data-stream/
+
+    <details>
+        <summary>Quick Summary</summary>
+        
+    - Multiple ways to solve this problem.
+    - Idea is to keep `O(1)` access to nos which can be median.
+    - For each incoming number, it would either be left of median, or right of current median.
+    - Assume you use heaps to maintain left subarray and right subarray, take one `min_heap` and another `max_heap`.
+    - So, aim would be to keep median numbers at top of heap.
+    - If the current number is less than top of `min heap`, push it to `max heap`, otherwise push the new element
+      to `min heap`.
+    - Rebalance the heaps if one heap size > other heap size by 1.
+    - At any point if you want to return median, if heap sizes are same, return half of sum of top elements.
+      Otherwise, return the top of larger heap.
+    
+    </details>
