@@ -266,3 +266,49 @@ https://leetcode.com/problems/find-median-from-data-stream/
       Otherwise, return the top of larger heap.
     
     </details>
+
+18. Given the root of a binary tree, determine if it is a valid binary search tree.  
+https://leetcode.com/problems/validate-binary-search-tree/  
+
+    <details>
+        <summary>Quick Summary</summary>
+        
+    - Idea is to limit the range of values each node is allowed to take, and as soon as some node violates  this limit,
+      return `false`.
+    - Begin with `-inf` to `+inf` range as min and max for root.
+    - When validating left subtree, limit the range to `min` to `root->val`.
+    - When validating right subtree, limit the range to `root->val` to `max`.
+    - Return `false` if any of the subtree violates the conditions.
+  
+    </details>  
+
+19. Given an `m X n` matrix, return all the elements of the matrix in spiral order.  
+https://leetcode.com/problems/spiral-matrix/  
+
+    <details>
+        <summary>Quick Summary</summary>
+        
+    - Idea is to traverse in spiral order, and updating the limits of row and columns as and when you reach the edge of
+      current limits.
+    - Keep track of what is the movement you are currently doing, and can you continue doing that movement.
+    - If you hit the right limit, you should change your movement to down, and reduce right limit by one.
+    - If you hit the down limit, you should change your movement to left, and reduce down limit by one.
+    - If you hit the left limit, you should change your movement to up, and increase the left limit by one.
+    - If you hit the up limit, you should change your movement to right, and increase the up limit by one.
+    - And so on. Do this until you can do some movement.
+
+    </details>
+
+2. Given a binary tree, return the boundary of the tree in anti-clockwise direction starting from root.  
+https://leetcode.com/problems/boundary-of-binary-tree/  
+https://www.lintcode.com/problem/boundary-of-binary-tree/  
+
+    <details>
+        <summary>Quick Summary</summary>
+        
+    - Plain DFS.
+    - Find left nodes of the tree(top-down), then leaves(left-right), and then right(bottom-up).
+    - When traversing left nodes, if some node does not have a left node, go to its right.
+    - When traversing right nodes, if some node does not have a right node, go it its left.
+    
+    </details>
